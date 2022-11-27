@@ -16,10 +16,12 @@ struct AssetDisplayObject {
 }
 
 protocol PresenterProtocol : AnyObject  {
-    func interactorDidUpdateData()
+    func interactorDidUpdateData(result: Result<Int, Error>)
 }
 
 class Presenter : PresenterProtocol {
+
+    
     private var interactor : InteractorProtocol
     weak var view: ViewProtocol?
     private(set) var displayAssets = [AssetDisplayObject]()
@@ -29,16 +31,25 @@ class Presenter : PresenterProtocol {
         interactor.presenter = self
     }
     
-    func interactorDidUpdateData() {
-        if let data = interactor.data {
-            displayAssets = data.assets.map {
-                AssetDisplayObject(headline: $0.headline,
-                                   theAbstract: $0.theAbstract,
-                                   byLine: $0.byLine,
-                                   timeStamp: $0.timeStamp,
-                                   url: $0.url)
+    func interactorDidUpdateData(result: Result<Int, Error>) {
+        switch result {
+        case .success:
+            if let data = interactor.data {
+                displayAssets = data.assets.map {
+                    AssetDisplayObject(headline: $0.headline,
+                                       theAbstract: $0.theAbstract,
+                                       byLine: $0.byLine,
+                                       timeStamp: $0.timeStamp,
+                                       url: $0.url)
+                }
             }
+            view?.updateView()
+            break;
+        case .failure(let error):
+            view?.displayError(error.localizedDescription)
+            break;
         }
-        view?.updateView()
+
+        
     }
 }

@@ -10,6 +10,7 @@ import SafariServices
 
 protocol ViewProtocol : AnyObject {
     func updateView()
+    func displayError(_ errorString: String)
 }
 
 class ViewController: UIViewController {
@@ -58,6 +59,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = displayObjects[indexPath.row]
         if let url = URL(string: item.url) {
+            // Use SFSafariViewController over WebkitView, since we don't want to customise or control what's to be displayed
             let config = SFSafariViewController.Configuration()
             let vc = SFSafariViewController(url: url, configuration: config)
             present(vc, animated: true)
@@ -67,6 +69,14 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
 }
 
 extension ViewController : ViewProtocol {
+    func displayError(_ errorString: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: errorString, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func updateView() {
         if let objects = presenter?.displayAssets {
             print(objects)

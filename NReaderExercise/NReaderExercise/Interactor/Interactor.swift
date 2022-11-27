@@ -22,6 +22,7 @@ public class Interactor: InteractorProtocol {
     private(set) var data: RepresentedObject?
     
     func initialSetup() {
+        data = nil
         fetchExerciseData()
     }
     
@@ -30,13 +31,14 @@ public class Interactor: InteractorProtocol {
         let urlSession = URLSession(configuration: .default).dataTask(with: url!) { (data, response, error) in
             if let error = error {
                 print(error)
+                self.presenter?.interactorDidUpdateData(result: .failure(error))
             }
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
                     let decodedObjects = try decoder.decode(RepresentedObject.self, from: data)
                     self.data = decodedObjects
-                    self.presenter?.interactorDidUpdateData()
+                    self.presenter?.interactorDidUpdateData(result: .success(0))
                     print(decodedObjects)
                 }
                 catch DecodingError.typeMismatch(let type, let context) {
