@@ -20,7 +20,6 @@
 		2275F6872932EE1A003AD02F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6862932EE1A003AD02F /* Interactor.swift */; };
 		2275F6892932FE96003AD02F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6882932FE96003AD02F /* Presenter.swift */; };
 		2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */; };
-		2283203D29332E4C00015BEA /* NReaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2283203B29332E4C00015BEA /* NReaderCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +58,6 @@
 		2275F6862932EE1A003AD02F /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		2275F6882932FE96003AD02F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NReaderCollectionViewCell.swift; sourceTree = "<group>"; };
-		2283203B29332E4C00015BEA /* NReaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NReaderCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +177,6 @@
 			children = (
 				22634C56292D0E0600F49544 /* ViewController.swift */,
 				2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */,
-				2283203B29332E4C00015BEA /* NReaderCollectionViewCell.xib */,
 			);
 			path = ViewAndViewController;
 			sourceTree = "<group>";
@@ -290,7 +287,6 @@
 			files = (
 				22634C5F292D0E0700F49544 /* LaunchScreen.storyboard in Resources */,
 				22634C5C292D0E0700F49544 /* Assets.xcassets in Resources */,
-				2283203D29332E4C00015BEA /* NReaderCollectionViewCell.xib in Resources */,
 				22634C5A292D0E0600F49544 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
