@@ -35,13 +35,15 @@ class Presenter : PresenterProtocol {
         switch result {
         case .success:
             if let data = interactor.data {
-                displayAssets = data.assets.map {
-                    AssetDisplayObject(headline: $0.headline,
-                                       theAbstract: $0.theAbstract,
-                                       byLine: $0.byLine,
-                                       timeStamp: $0.timeStamp,
-                                       url: $0.url)
-                }
+                // Sort the data by timeStamp, then compose the display data for view 
+                displayAssets = data.assets.sorted(by: { $0.timeStamp > $1.timeStamp })
+                    .map {
+                        AssetDisplayObject(headline: $0.headline,
+                                           theAbstract: $0.theAbstract,
+                                           byLine: $0.byLine,
+                                           timeStamp: $0.timeStamp,
+                                           url: $0.url)
+                    }
             }
             view?.updateView()
             break;

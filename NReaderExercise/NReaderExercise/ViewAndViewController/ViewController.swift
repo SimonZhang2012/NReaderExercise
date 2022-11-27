@@ -48,7 +48,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let unixTimestamp = displayObjects[indexPath.row].timeStamp
         let date = Date(timeIntervalSince1970: unixTimestamp / 1000.0)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+        dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = NSLocale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
         let strDate = dateFormatter.string(from: date)
