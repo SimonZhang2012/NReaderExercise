@@ -23,7 +23,6 @@ protocol PresenterProtocol : AnyObject  {
 
 class Presenter : PresenterProtocol {
 
-    
     private var interactor : InteractorProtocol
     weak var view: ViewProtocol?
     private(set) var displayAssets = [AssetDisplayObject]()
@@ -52,9 +51,6 @@ class Presenter : PresenterProtocol {
                                                   imageURL: imageURL)
                     }
             }
-            
-            
-            
             view?.updateView()
             break;
         case .failure(let error):

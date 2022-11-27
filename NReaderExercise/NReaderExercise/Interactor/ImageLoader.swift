@@ -13,8 +13,6 @@ var imageCache = NSCache<AnyObject, AnyObject>()
 // Here demo a simple way to use in-memory cache to fetch image
 // We can also use the code in AppDelegate
 
-// Todo: we can save cache into a temp folder 
-
 extension UIImageView {
 
     func loadImage(urlString: String) {

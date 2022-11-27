@@ -47,7 +47,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" 
         let strDate = dateFormatter.string(from: date)
         cell.timeLabel.text = strDate
         

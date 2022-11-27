@@ -24,10 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let interactor = Interactor()
         let presenter = Presenter(interactor: interactor)
-
         viewController.presenter = presenter
         presenter.view = viewController
-    
         interactor.initialSetup()
     }
 
