@@ -21,6 +21,9 @@ protocol PresenterProtocol : AnyObject  {
     func interactorDidUpdateData(result: Result<RepresentedObject, Error>)
 }
 
+/// Presenter holds all "presentation logic"
+/// Here we convert the module data to the display data, also sort it with timeStamp
+
 class Presenter : PresenterProtocol {
 
     private var interactor : InteractorProtocol
@@ -41,6 +44,7 @@ class Presenter : PresenterProtocol {
                     .map {
                         var imageURL = ""
                         if let images = $0.relatedImages.sorted(by: {$0.width < $1.width}).first(where: { $0.width > 0}) {
+                            // found the smallest image
                             imageURL = images.url
                         }
                         return AssetDisplayObject(headline: $0.headline,

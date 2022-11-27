@@ -17,6 +17,8 @@ protocol InteractorProtocol {
 //    func restoreDataFromLocalStorage()
 }
 
+/// Interactor holds all 'Business Logic', in this app mainly: read data from an URL and decode it.
+
 public class Interactor: InteractorProtocol {
     weak var presenter: PresenterProtocol?
     private(set) var data: RepresentedObject?

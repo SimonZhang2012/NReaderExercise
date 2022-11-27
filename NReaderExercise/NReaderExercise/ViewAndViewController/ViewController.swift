@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var presenter: Presenter?
     let reusedIdentifier = "NReaderCollectionViewCell"
     
+    // A convenient getter so we don't need to unwrap it every time
     private var displayObjects: [AssetDisplayObject] {
         presenter?.displayAssets ?? []
     }
@@ -39,9 +40,15 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedIdentifier, for: indexPath as IndexPath) as! NReaderCollectionViewCell
-        let object = displayObjects[indexPath.row]
+        guard let object = displayObjects[safe: indexPath.row] else {
+            print("collectionView indexPath error: row = \(indexPath.row)")
+            return UICollectionViewCell()
+        }
+        
+        // Title
         cell.titleLabel.text = object.headline
 
+        // Timestamp
         let unixTimestamp = object.timeStamp
         let date = Date(timeIntervalSince1970: unixTimestamp / 1000.0)
         let dateFormatter = DateFormatter()
@@ -51,11 +58,12 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let strDate = dateFormatter.string(from: date)
         cell.timeLabel.text = strDate
         
+        // byLine and abstract
         cell.byLineLabel.text = object.byLine
         cell.abstractLabel.text = object.theAbstract
         
+        // Image: (using cache)
         cell.imageView.loadImage(urlString: displayObjects[indexPath.row].imageURL)
-        
         return cell
     }
     
@@ -64,7 +72,6 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         let wholeWidth: CGFloat = (collectionView.frame.size.width - space)
 
-        
         // Very simple layout, one column on iPhone and two column on iPad
         // Could consider more things here
         if traitCollection.horizontalSizeClass == .regular {
@@ -96,11 +103,8 @@ extension ViewController : ViewProtocol {
     }
     
     func updateView() {
-        if let objects = presenter?.displayAssets {
-            print(objects)
-            DispatchQueue.main.async {
-                self.articlesUICollectionView.reloadData()
-            }
+        DispatchQueue.main.async {
+            self.articlesUICollectionView.reloadData()
         }
     }
 }

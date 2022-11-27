@@ -20,7 +20,8 @@
 		2275F6872932EE1A003AD02F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6862932EE1A003AD02F /* Interactor.swift */; };
 		2275F6892932FE96003AD02F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6882932FE96003AD02F /* Presenter.swift */; };
 		2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */; };
-		2283203F2933877700015BEA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203E2933877700015BEA /* ImageLoader.swift */; };
+		2283203F2933877700015BEA /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203E2933877700015BEA /* UIImageView+loadImage.swift */; };
+		228320422933C3FA00015BEA /* Collection+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320412933C3FA00015BEA /* Collection+SafeAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,8 @@
 		2275F6862932EE1A003AD02F /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		2275F6882932FE96003AD02F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NReaderCollectionViewCell.swift; sourceTree = "<group>"; };
-		2283203E2933877700015BEA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2283203E2933877700015BEA /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
+		228320412933C3FA00015BEA /* Collection+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeAccess.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		22634C51292D0E0600F49544 /* NReaderExercise */ = {
 			isa = PBXGroup;
 			children = (
+				228320402933C16F00015BEA /* Common */,
 				22634C82292D0E3700F49544 /* Module */,
 				2275F6832932EDA6003AD02F /* Interactor */,
 				2275F6842932EDB3003AD02F /* Presenter */,
@@ -162,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				2275F6862932EE1A003AD02F /* Interactor.swift */,
-				2283203E2933877700015BEA /* ImageLoader.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -182,6 +184,15 @@
 				2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */,
 			);
 			path = ViewAndViewController;
+			sourceTree = "<group>";
+		};
+		228320402933C16F00015BEA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2283203E2933877700015BEA /* UIImageView+loadImage.swift */,
+				228320412933C3FA00015BEA /* Collection+SafeAccess.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,10 +329,11 @@
 				2275F6892932FE96003AD02F /* Presenter.swift in Sources */,
 				22634C57292D0E0600F49544 /* ViewController.swift in Sources */,
 				22634C84292D0E4E00F49544 /* Module.swift in Sources */,
+				228320422933C3FA00015BEA /* Collection+SafeAccess.swift in Sources */,
 				2275F6872932EE1A003AD02F /* Interactor.swift in Sources */,
 				22634C53292D0E0600F49544 /* AppDelegate.swift in Sources */,
 				22634C55292D0E0600F49544 /* SceneDelegate.swift in Sources */,
-				2283203F2933877700015BEA /* ImageLoader.swift in Sources */,
+				2283203F2933877700015BEA /* UIImageView+loadImage.swift in Sources */,
 				2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

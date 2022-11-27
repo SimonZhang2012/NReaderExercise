@@ -1,5 +1,5 @@
 //
-//  ImageLoader.swift
+//  UIImageView+loadImage.swift
 //  NReaderExercise
 //
 //  Created by Yixiang Zhang on 27/11/2022.

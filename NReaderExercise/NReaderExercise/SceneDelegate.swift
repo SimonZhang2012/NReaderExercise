@@ -22,10 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
+        // Create and connect MVP+I components and connect them
         let interactor = Interactor()
         let presenter = Presenter(interactor: interactor)
         viewController.presenter = presenter
         presenter.view = viewController
+        
         interactor.initialSetup()
     }
 

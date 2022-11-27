@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Module represents the pure struct object to be used in this App
+
 // Represent the data feteched from server, ideally we should get a spec from API developer
 // Here we simply constructed from sample data at https://bruce-v2-mob.fairfaxmedia.com.au/1/coding_test/13ZZQX/full
 // Only need to read it in this exercise, so Decodable instead of Codable
