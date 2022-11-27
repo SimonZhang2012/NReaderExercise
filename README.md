@@ -8,6 +8,8 @@
 - This App use MVP+I (interactor)
 	- The reason for choosing MVP over MVVM is to avoid using any binding framework
 	- Could be easily transformed to MVVM since VM and presenter do similar things
+![image](https://user-images.githubusercontent.com/1267039/204154777-83ec813a-4c06-47b0-a99a-35fa9f0fada0.png)
+
 	
 ## Finished features
 - Get articles from API endpoints
