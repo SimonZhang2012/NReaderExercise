@@ -16,7 +16,6 @@ protocol ViewProtocol : AnyObject {
 class ViewController: UIViewController {
 
     @IBOutlet weak var articlesUICollectionView: UICollectionView!
-
     var presenter: Presenter?
     let reusedIdentifier = "NReaderCollectionViewCell"
     
@@ -24,14 +23,11 @@ class ViewController: UIViewController {
         presenter?.displayAssets ?? []
     }
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         articlesUICollectionView.delegate = self
         articlesUICollectionView.dataSource = self
-       // articlesUICollectionView.register(NReaderCollectionViewCell.self, forCellWithReuseIdentifier: reusedIdentifier)
     }
         
 }
@@ -43,9 +39,10 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedIdentifier, for: indexPath as IndexPath) as! NReaderCollectionViewCell
-        cell.titleLabel.text = displayObjects[indexPath.row].headline
+        let object = displayObjects[indexPath.row]
+        cell.titleLabel.text = object.headline
 
-        let unixTimestamp = displayObjects[indexPath.row].timeStamp
+        let unixTimestamp = object.timeStamp
         let date = Date(timeIntervalSince1970: unixTimestamp / 1000.0)
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
@@ -54,6 +51,8 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let strDate = dateFormatter.string(from: date)
         cell.timeLabel.text = strDate
         
+        cell.byLineLabel.text = object.byLine
+        cell.abstractLabel.text = object.theAbstract
         
         cell.imageView.loadImage(urlString: displayObjects[indexPath.row].imageURL)
         
@@ -63,9 +62,16 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-        let size: CGFloat = (collectionView.frame.size.width - space) / 2.0
+        let wholeWidth: CGFloat = (collectionView.frame.size.width - space)
+
         
-        return CGSizeMake(size, 50)
+        // Very simple layout, one column on iPhone and two column on iPad
+        // Could consider more things here
+        if traitCollection.horizontalSizeClass == .regular {
+            return CGSizeMake(wholeWidth / 2.0, 300)
+        } else {
+            return CGSizeMake(wholeWidth, 300)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
