@@ -53,6 +53,10 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
         let strDate = dateFormatter.string(from: date)
         cell.timeLabel.text = strDate
+        
+        
+        cell.imageView.loadImage(urlString: displayObjects[indexPath.row].imageURL)
+        
         return cell
     }
     

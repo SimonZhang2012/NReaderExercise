@@ -47,16 +47,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yvC-hk-1QS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="67" height="162"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="cWc-NW-MNc" secondAttribute="trailing" constant="27" id="54t-lk-v6v"/>
+                                                <constraint firstItem="yvC-hk-1QS" firstAttribute="width" secondItem="bst-uM-8RV" secondAttribute="width" multiplier="0.308756" id="5jc-t2-cfy"/>
+                                                <constraint firstItem="yvC-hk-1QS" firstAttribute="leading" secondItem="bst-uM-8RV" secondAttribute="leading" id="7WX-Fc-iFV"/>
                                                 <constraint firstItem="1IR-PS-cmn" firstAttribute="centerX" secondItem="bst-uM-8RV" secondAttribute="centerX" id="Jfy-0g-q7n"/>
+                                                <constraint firstAttribute="bottom" secondItem="yvC-hk-1QS" secondAttribute="bottom" id="O0U-uR-Xsz"/>
                                                 <constraint firstItem="1IR-PS-cmn" firstAttribute="centerY" secondItem="bst-uM-8RV" secondAttribute="centerY" id="dpM-XF-QGD"/>
                                                 <constraint firstAttribute="bottom" secondItem="cWc-NW-MNc" secondAttribute="bottom" constant="23" id="iKe-i9-USa"/>
+                                                <constraint firstItem="yvC-hk-1QS" firstAttribute="top" secondItem="bst-uM-8RV" secondAttribute="top" id="jBk-wE-YXH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="217" height="162"/>
                                         <connections>
+                                            <outlet property="imageView" destination="yvC-hk-1QS" id="oxE-rw-uMi"/>
                                             <outlet property="timeLabel" destination="cWc-NW-MNc" id="3zq-SC-kek"/>
                                             <outlet property="titleLabel" destination="1IR-PS-cmn" id="OgI-SY-s4V"/>
                                         </connections>

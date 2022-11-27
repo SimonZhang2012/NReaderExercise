@@ -13,6 +13,8 @@ struct AssetDisplayObject {
     let byLine: String
     let timeStamp: Double
     let url: String
+    
+    let imageURL: String
 }
 
 protocol PresenterProtocol : AnyObject  {
@@ -38,13 +40,21 @@ class Presenter : PresenterProtocol {
                 // Sort the data by timeStamp, then compose the display data for view 
                 displayAssets = data.assets.sorted(by: { $0.timeStamp > $1.timeStamp })
                     .map {
-                        AssetDisplayObject(headline: $0.headline,
-                                           theAbstract: $0.theAbstract,
-                                           byLine: $0.byLine,
-                                           timeStamp: $0.timeStamp,
-                                           url: $0.url)
+                        var imageURL = ""
+                        if let images = $0.relatedImages.sorted(by: {$0.width < $1.width}).first(where: { $0.width > 0}) {
+                            imageURL = images.url
+                        }
+                        return AssetDisplayObject(headline: $0.headline,
+                                                  theAbstract: $0.theAbstract,
+                                                  byLine: $0.byLine,
+                                                  timeStamp: $0.timeStamp,
+                                                  url: $0.url,
+                                                  imageURL: imageURL)
                     }
             }
+            
+            
+            
             view?.updateView()
             break;
         case .failure(let error):

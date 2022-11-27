@@ -20,6 +20,7 @@
 		2275F6872932EE1A003AD02F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6862932EE1A003AD02F /* Interactor.swift */; };
 		2275F6892932FE96003AD02F /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275F6882932FE96003AD02F /* Presenter.swift */; };
 		2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */; };
+		2283203F2933877700015BEA /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203E2933877700015BEA /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		2275F6862932EE1A003AD02F /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		2275F6882932FE96003AD02F /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NReaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		2283203E2933877700015BEA /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2275F6862932EE1A003AD02F /* Interactor.swift */,
+				2283203E2933877700015BEA /* ImageLoader.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				2275F6872932EE1A003AD02F /* Interactor.swift in Sources */,
 				22634C53292D0E0600F49544 /* AppDelegate.swift in Sources */,
 				22634C55292D0E0600F49544 /* SceneDelegate.swift in Sources */,
+				2283203F2933877700015BEA /* ImageLoader.swift in Sources */,
 				2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
