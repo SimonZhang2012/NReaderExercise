@@ -39,6 +39,15 @@ struct asset: Decodable {
     let sponsored: Bool
     let headline: String
     let indexHeadline: String
+    let tabletHeadline: String
+    let theAbstract: String
+    let byLine: String
+    let acceptComments: Bool
+    let numberOfComments: Int
+   // let relatedAssets: [asset]
+    let relatedImages:[image]
+    
+    let timeStamp: Double
 }
 
 struct category: Decodable {

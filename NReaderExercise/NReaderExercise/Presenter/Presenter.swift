@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct AssetDisplayObject {
+    let headline: String
+    let theAbstract: String
+    let byLine: String
+    let timeStamp: Double
+    let url: String
+}
+
 protocol PresenterProtocol : AnyObject  {
     func interactorDidUpdateData()
 }
@@ -14,6 +22,7 @@ protocol PresenterProtocol : AnyObject  {
 class Presenter : PresenterProtocol {
     private var interactor : InteractorProtocol
     weak var view: ViewProtocol?
+    private(set) var displayAssets = [AssetDisplayObject]()
     
     init(interactor: Interactor) {
         self.interactor = interactor
@@ -22,7 +31,13 @@ class Presenter : PresenterProtocol {
     
     func interactorDidUpdateData() {
         if let data = interactor.data {
-            print(data)
+            displayAssets = data.assets.map {
+                AssetDisplayObject(headline: $0.headline,
+                                   theAbstract: $0.theAbstract,
+                                   byLine: $0.byLine,
+                                   timeStamp: $0.timeStamp,
+                                   url: $0.url)
+            }
         }
         view?.updateView()
     }

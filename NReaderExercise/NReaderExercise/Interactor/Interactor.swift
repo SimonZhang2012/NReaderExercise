@@ -37,13 +37,13 @@ public class Interactor: InteractorProtocol {
                     let decodedObjects = try decoder.decode(RepresentedObject.self, from: data)
                     self.data = decodedObjects
                     self.presenter?.interactorDidUpdateData()
-                    //print(decodedObjects)
+                    print(decodedObjects)
                 }
                 catch DecodingError.typeMismatch(let type, let context) {
-                    //print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+                    print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
                 }
                 catch let myError  {
-                    //print(myError)
+                    print(myError)
                 }
             }
         }
