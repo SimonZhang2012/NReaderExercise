@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol ViewProtocol : AnyObject {
     func updateView()
@@ -14,12 +15,15 @@ protocol ViewProtocol : AnyObject {
 class ViewController: UIViewController {
 
     @IBOutlet weak var articlesUICollectionView: UICollectionView!
+
     var presenter: Presenter?
     let reusedIdentifier = "NReaderCollectionViewCell"
     
     private var displayObjects: [AssetDisplayObject] {
         presenter?.displayAssets ?? []
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +55,14 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         return CGSizeMake(size, 50)
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = displayObjects[indexPath.row]
+        if let url = URL(string: item.url) {
+            let config = SFSafariViewController.Configuration()
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+    }
     
 }
 
