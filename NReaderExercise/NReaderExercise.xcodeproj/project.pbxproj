@@ -22,6 +22,7 @@
 		2283203C29332E4C00015BEA /* NReaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */; };
 		2283203F2933877700015BEA /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203E2933877700015BEA /* UIImageView+loadImage.swift */; };
 		228320422933C3FA00015BEA /* Collection+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320412933C3FA00015BEA /* Collection+SafeAccess.swift */; };
+		228320442933D5DC00015BEA /* Collection+SafeAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		2283203A29332E4C00015BEA /* NReaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NReaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		2283203E2933877700015BEA /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		228320412933C3FA00015BEA /* Collection+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeAccess.swift"; sourceTree = "<group>"; };
+		228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeAccessTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				22634C69292D0E0700F49544 /* NReaderExerciseTests.swift */,
+				228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */,
 			);
 			path = NReaderExerciseTests;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228320442933D5DC00015BEA /* Collection+SafeAccessTests.swift in Sources */,
 				22634C6A292D0E0700F49544 /* NReaderExerciseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
