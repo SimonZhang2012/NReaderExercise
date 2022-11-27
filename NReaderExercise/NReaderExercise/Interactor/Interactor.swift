@@ -40,7 +40,6 @@ public class Interactor: InteractorProtocol {
                     let decodedObjects = try decoder.decode(RepresentedObject.self, from: data)
                     self.data = decodedObjects
                     self.presenter?.interactorDidUpdateData(result: .success(decodedObjects))
-                    print(decodedObjects)
                 }
                 catch let error  {
                     print(error)

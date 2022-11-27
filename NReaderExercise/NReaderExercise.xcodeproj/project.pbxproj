@@ -23,6 +23,8 @@
 		2283203F2933877700015BEA /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283203E2933877700015BEA /* UIImageView+loadImage.swift */; };
 		228320422933C3FA00015BEA /* Collection+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320412933C3FA00015BEA /* Collection+SafeAccess.swift */; };
 		228320442933D5DC00015BEA /* Collection+SafeAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */; };
+		228320462933D74900015BEA /* InteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320452933D74900015BEA /* InteractorTests.swift */; };
+		228320482933DA6200015BEA /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228320472933DA6200015BEA /* PresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		2283203E2933877700015BEA /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		228320412933C3FA00015BEA /* Collection+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeAccess.swift"; sourceTree = "<group>"; };
 		228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeAccessTests.swift"; sourceTree = "<group>"; };
+		228320452933D74900015BEA /* InteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorTests.swift; sourceTree = "<group>"; };
+		228320472933DA6200015BEA /* PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			children = (
 				22634C69292D0E0700F49544 /* NReaderExerciseTests.swift */,
 				228320432933D5DC00015BEA /* Collection+SafeAccessTests.swift */,
+				228320452933D74900015BEA /* InteractorTests.swift */,
+				228320472933DA6200015BEA /* PresenterTests.swift */,
 			);
 			path = NReaderExerciseTests;
 			sourceTree = "<group>";
@@ -347,6 +353,8 @@
 			files = (
 				228320442933D5DC00015BEA /* Collection+SafeAccessTests.swift in Sources */,
 				22634C6A292D0E0700F49544 /* NReaderExerciseTests.swift in Sources */,
+				228320482933DA6200015BEA /* PresenterTests.swift in Sources */,
+				228320462933D74900015BEA /* InteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
