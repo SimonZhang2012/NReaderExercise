@@ -57,6 +57,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" 
         let strDate = dateFormatter.string(from: date)
         cell.timeLabel.text = strDate
+        cell.timeLabel.accessibilityLabel = "aaaaaa"
         
         // byLine and abstract
         cell.byLineLabel.text = object.byLine

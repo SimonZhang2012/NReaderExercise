@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Foundation
 
 final class NReaderExerciseUITests: XCTestCase {
 
@@ -22,12 +23,46 @@ final class NReaderExerciseUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testAppLaunchDefaultView() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // We should see a collectionView
+        XCTAssertTrue(app.collectionViews.element.exists)
+        
+        // The collectionView is not empty
+        XCTAssertNotEqual(app.collectionViews.children(matching:.any).count, 0)
+        
+        // We are seeing some texts and images
+        XCTAssertNotEqual(app.collectionViews.descendants(matching: .staticText).count, 0)
+        XCTAssertNotEqual(app.collectionViews.descendants(matching: .image).count, 0)
+    }
+    
+    func testNavigationTapArticleAndGoBack() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+
+        // We can tap the first three items in collectionView
+        let numberToTest = min(3, app.collectionViews.children(matching:.any).count)
+        for index in 0 ..< numberToTest {
+            let cell = app.collectionViews.children(matching:.any).element(boundBy: index)
+            if cell.exists {
+                cell.tap()
+                
+                // We are seeing an in-app browser with done button
+                XCTAssertFalse(app.collectionViews.element.exists)
+                XCTAssertTrue(app.webViews.element.exists)
+                XCTAssertTrue(app.buttons["Done"].exists)
+                
+                
+                // Tap "Done button" to bring us back
+                app.buttons["Done"].tap()
+                XCTAssertTrue(app.collectionViews.element.exists)
+                XCTAssertFalse(app.webViews.element.exists)
+            }
+        }
     }
 
     func testLaunchPerformance() throws {
