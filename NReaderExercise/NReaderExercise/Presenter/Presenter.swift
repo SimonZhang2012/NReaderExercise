@@ -37,24 +37,23 @@ class Presenter : PresenterProtocol {
     
     func interactorDidUpdateData(result: Result<RepresentedObject, Error>) {
         switch result {
-        case .success:
-            if let data = interactor.data {
-                // Sort the data by timeStamp, then compose the display data for view 
-                displayAssets = data.assets.sorted(by: { $0.timeStamp > $1.timeStamp })
-                    .map {
-                        var imageURL = ""
-                        if let images = $0.relatedImages.sorted(by: {$0.width < $1.width}).first(where: { $0.width > 0}) {
-                            // found the smallest image
-                            imageURL = images.url
-                        }
-                        return AssetDisplayObject(headline: $0.headline,
-                                                  theAbstract: $0.theAbstract,
-                                                  byLine: $0.byLine,
-                                                  timeStamp: $0.timeStamp,
-                                                  url: $0.url,
-                                                  imageURL: imageURL)
+        case .success(let data):
+            // Sort the data by timeStamp, then compose the display data for view
+            displayAssets = data.assets.sorted(by: { $0.timeStamp > $1.timeStamp })
+                .map {
+                    var imageURL = ""
+                    if let images = $0.relatedImages.sorted(by: {$0.width < $1.width}).first(where: { $0.width > 0}) {
+                        // found the smallest image
+                        imageURL = images.url
                     }
-            }
+                    return AssetDisplayObject(headline: $0.headline,
+                                              theAbstract: $0.theAbstract,
+                                              byLine: $0.byLine,
+                                              timeStamp: $0.timeStamp,
+                                              url: $0.url,
+                                              imageURL: imageURL)
+                }
+
             view?.updateView()
             break;
         case .failure(let error):
