@@ -42,19 +42,10 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title\nLine2" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-PS-cmn">
                                                             <rect key="frame" x="0.0" y="7.9999999999999982" width="341" height="26.333333333333329"/>
-                                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="fcb-sY-39H"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-NW-MNc">
-                                                            <rect key="frame" x="20" y="162.33333333333334" width="41.333333333333336" height="20.333333333333343"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" systemColor="secondaryLabelColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -74,6 +65,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-NW-MNc">
+                                                            <rect key="frame" x="175" y="34" width="170" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="e3K-MI-grg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -82,6 +82,7 @@
                                                         <constraint firstItem="9N5-N1-dHO" firstAttribute="top" secondItem="1IR-PS-cmn" secondAttribute="bottom" constant="-0.3333333333333286" id="OIu-ie-zso"/>
                                                         <constraint firstItem="9N5-N1-dHO" firstAttribute="width" secondItem="3tK-f1-8pd" secondAttribute="width" multiplier="0.47851" id="QhS-h0-75r"/>
                                                         <constraint firstAttribute="trailing" secondItem="1IR-PS-cmn" secondAttribute="trailing" constant="8" id="Yqi-v4-c4t"/>
+                                                        <constraint firstItem="cWc-NW-MNc" firstAttribute="top" secondItem="1IR-PS-cmn" secondAttribute="bottom" constant="-0.3333333333333286" id="cpb-aL-r0g"/>
                                                         <constraint firstItem="1IR-PS-cmn" firstAttribute="leading" secondItem="3tK-f1-8pd" secondAttribute="leading" id="mhs-DX-Ysh"/>
                                                     </constraints>
                                                 </view>
@@ -91,7 +92,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="yvC-hk-1QS" secondAttribute="trailing" id="EJq-4C-et5"/>
                                                 <constraint firstItem="3tK-f1-8pd" firstAttribute="top" secondItem="bst-uM-8RV" secondAttribute="top" id="JaR-eu-V7z"/>
                                                 <constraint firstAttribute="bottom" secondItem="yvC-hk-1QS" secondAttribute="bottom" id="O5T-gK-9tN"/>
+                                                <constraint firstAttribute="trailing" secondItem="cWc-NW-MNc" secondAttribute="trailing" constant="4" id="Oxl-Me-Cce"/>
                                                 <constraint firstItem="3tK-f1-8pd" firstAttribute="leading" secondItem="bst-uM-8RV" secondAttribute="leading" id="Qpd-n9-yYu"/>
+                                                <constraint firstItem="cWc-NW-MNc" firstAttribute="width" secondItem="bst-uM-8RV" secondAttribute="width" multiplier="0.487106" id="W6c-jY-3nM"/>
                                                 <constraint firstItem="3tK-f1-8pd" firstAttribute="height" secondItem="bst-uM-8RV" secondAttribute="height" multiplier="0.515723" id="WG0-Db-K9s"/>
                                                 <constraint firstItem="yvC-hk-1QS" firstAttribute="height" secondItem="bst-uM-8RV" secondAttribute="height" multiplier="0.477987" id="nUL-Eh-H7L"/>
                                                 <constraint firstAttribute="trailing" secondItem="3tK-f1-8pd" secondAttribute="trailing" id="phx-e3-Oef"/>
@@ -128,14 +131,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
