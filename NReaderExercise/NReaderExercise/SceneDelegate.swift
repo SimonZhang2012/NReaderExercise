@@ -18,14 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        guard let viewController = window?.rootViewController as? ViewController else {
+            return
+        }
         
         let interactor = Interactor()
         let presenter = Presenter(interactor: interactor)
-    //    interactor.presenter = presenter
-    //    viewController.presenter = presenter
-    //    presenter.view = viewController
-    //
-    //    interactor.initialSetup()
+
+        viewController.presenter = presenter
+        presenter.view = viewController
+    
+        interactor.initialSetup()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

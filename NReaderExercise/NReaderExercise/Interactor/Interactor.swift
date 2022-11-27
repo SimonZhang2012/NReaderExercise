@@ -8,7 +8,7 @@
 import Foundation
 
 protocol InteractorProtocol {
-
+    var data: RepresentedObject? { get }
     func initialSetup()
    
     // These are not required in this exercise, could be for next step.
@@ -19,6 +19,7 @@ protocol InteractorProtocol {
 
 public class Interactor: InteractorProtocol {
     weak var presenter: PresenterProtocol?
+    private(set) var data: RepresentedObject?
     
     func initialSetup() {
         fetchExerciseData()
@@ -34,13 +35,15 @@ public class Interactor: InteractorProtocol {
                 do {
                     let decoder = JSONDecoder()
                     let decodedObjects = try decoder.decode(RepresentedObject.self, from: data)
-                    print(decodedObjects)
+                    self.data = decodedObjects
+                    self.presenter?.interactorDidUpdateData()
+                    //print(decodedObjects)
                 }
                 catch DecodingError.typeMismatch(let type, let context) {
-                    print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+                    //print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
                 }
                 catch let myError  {
-                    print(myError)
+                    //print(myError)
                 }
             }
         }

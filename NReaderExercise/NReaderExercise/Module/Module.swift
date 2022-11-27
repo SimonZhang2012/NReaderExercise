@@ -9,11 +9,12 @@ import Foundation
 
 // constructed from sample data at https://bruce-v2-mob.fairfaxmedia.com.au/1/coding_test/13ZZQX/full
 
+// Represent the data feteched from server
 // Only need to read it in this exercise, so Decodable instead of Codable
 struct RepresentedObject: Decodable {
     let id: Int
-    let categories: [category] // type is my guess, since it is empty in the sample data
-    let authors: [author] // type is my guess, since it is empty in the sample data
+    let categories: [category] // type is a guess, since it is empty in the sample data
+    let authors: [author] // type is a guess, same as in other places
     let url: String
     let lastModified: Double
     let onTime: Double
@@ -22,8 +23,8 @@ struct RepresentedObject: Decodable {
 
     let assets: [asset]
     
-    let relatedAssets: [asset] // type is my guess, since it is empty in the sample data
-    let relatedImages: [image] // type is my guess, since it is empty in the sample data
+    let relatedAssets: [asset]
+    let relatedImages: [image] 
     let assetType: String
     let timeStamp: Double
 }

@@ -112,12 +112,11 @@
 				2275F6852932EDBF003AD02F /* ViewAndViewController */,
 				22634C52292D0E0600F49544 /* AppDelegate.swift */,
 				22634C54292D0E0600F49544 /* SceneDelegate.swift */,
-				22634C56292D0E0600F49544 /* ViewController.swift */,
 				22634C58292D0E0600F49544 /* Main.storyboard */,
 				22634C5B292D0E0700F49544 /* Assets.xcassets */,
 				22634C5D292D0E0700F49544 /* LaunchScreen.storyboard */,
 				22634C60292D0E0700F49544 /* Info.plist */,
-				2275F6812932D4D2003AD02F /* Resource */,
+				2275F6812932D4D2003AD02F /* Document */,
 			);
 			path = NReaderExercise;
 			sourceTree = "<group>";
@@ -147,12 +146,12 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-		2275F6812932D4D2003AD02F /* Resource */ = {
+		2275F6812932D4D2003AD02F /* Document */ = {
 			isa = PBXGroup;
 			children = (
 				2275F6822932D502003AD02F /* task_ios.md */,
 			);
-			path = Resource;
+			path = Document;
 			sourceTree = "<group>";
 		};
 		2275F6832932EDA6003AD02F /* Interactor */ = {
@@ -174,6 +173,7 @@
 		2275F6852932EDBF003AD02F /* ViewAndViewController */ = {
 			isa = PBXGroup;
 			children = (
+				22634C56292D0E0600F49544 /* ViewController.swift */,
 			);
 			path = ViewAndViewController;
 			sourceTree = "<group>";

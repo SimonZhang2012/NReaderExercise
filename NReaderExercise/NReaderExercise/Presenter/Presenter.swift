@@ -13,7 +13,7 @@ protocol PresenterProtocol : AnyObject  {
 
 class Presenter : PresenterProtocol {
     private var interactor : InteractorProtocol
-  //  weak var view: ViewProtocol?
+    weak var view: ViewProtocol?
     
     init(interactor: Interactor) {
         self.interactor = interactor
@@ -21,6 +21,9 @@ class Presenter : PresenterProtocol {
     }
     
     func interactorDidUpdateData() {
-//        view?.updateView()
+        if let data = interactor.data {
+            print(data)
+        }
+        view?.updateView()
     }
 }
