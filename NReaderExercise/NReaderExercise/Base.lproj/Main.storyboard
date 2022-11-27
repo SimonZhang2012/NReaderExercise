@@ -34,20 +34,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="217" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111111111111111111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-PS-cmn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111111111111111111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-PS-cmn">
                                                     <rect key="frame" x="41.333333333333329" y="71" width="134.33333333333337" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-NW-MNc">
+                                                    <rect key="frame" x="148.66666666666666" y="118" width="41.333333333333343" height="21"/>
+                                                    <color key="backgroundColor" systemColor="linkColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cWc-NW-MNc" secondAttribute="trailing" constant="27" id="54t-lk-v6v"/>
                                                 <constraint firstItem="1IR-PS-cmn" firstAttribute="centerX" secondItem="bst-uM-8RV" secondAttribute="centerX" id="Jfy-0g-q7n"/>
                                                 <constraint firstItem="1IR-PS-cmn" firstAttribute="centerY" secondItem="bst-uM-8RV" secondAttribute="centerY" id="dpM-XF-QGD"/>
+                                                <constraint firstAttribute="bottom" secondItem="cWc-NW-MNc" secondAttribute="bottom" constant="23" id="iKe-i9-USa"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="217" height="162"/>
                                         <connections>
+                                            <outlet property="timeLabel" destination="cWc-NW-MNc" id="3zq-SC-kek"/>
                                             <outlet property="titleLabel" destination="1IR-PS-cmn" id="OgI-SY-s4V"/>
                                         </connections>
                                     </collectionViewCell>
@@ -73,6 +83,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

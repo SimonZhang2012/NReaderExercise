@@ -16,7 +16,7 @@ struct AssetDisplayObject {
 }
 
 protocol PresenterProtocol : AnyObject  {
-    func interactorDidUpdateData(result: Result<Int, Error>)
+    func interactorDidUpdateData(result: Result<RepresentedObject, Error>)
 }
 
 class Presenter : PresenterProtocol {
@@ -31,7 +31,7 @@ class Presenter : PresenterProtocol {
         interactor.presenter = self
     }
     
-    func interactorDidUpdateData(result: Result<Int, Error>) {
+    func interactorDidUpdateData(result: Result<RepresentedObject, Error>) {
         switch result {
         case .success:
             if let data = interactor.data {

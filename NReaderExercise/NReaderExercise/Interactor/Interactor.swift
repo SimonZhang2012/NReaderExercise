@@ -30,7 +30,6 @@ public class Interactor: InteractorProtocol {
         let url = URL(string: "https://bruce-v2-mob.fairfaxmedia.com.au/1/coding_test/13ZZQX/full")
         let urlSession = URLSession(configuration: .default).dataTask(with: url!) { (data, response, error) in
             if let error = error {
-                print(error)
                 self.presenter?.interactorDidUpdateData(result: .failure(error))
             }
             if let data = data {
@@ -38,14 +37,12 @@ public class Interactor: InteractorProtocol {
                     let decoder = JSONDecoder()
                     let decodedObjects = try decoder.decode(RepresentedObject.self, from: data)
                     self.data = decodedObjects
-                    self.presenter?.interactorDidUpdateData(result: .success(0))
+                    self.presenter?.interactorDidUpdateData(result: .success(decodedObjects))
                     print(decodedObjects)
                 }
-                catch DecodingError.typeMismatch(let type, let context) {
-                    print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
-                }
-                catch let myError  {
-                    print(myError)
+                catch let error  {
+                    print(error)
+                    self.presenter?.interactorDidUpdateData(result: .failure(error))
                 }
             }
         }
