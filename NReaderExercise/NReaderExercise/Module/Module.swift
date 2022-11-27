@@ -7,14 +7,13 @@
 
 import Foundation
 
-// constructed from sample data at https://bruce-v2-mob.fairfaxmedia.com.au/1/coding_test/13ZZQX/full
-
-// Represent the data feteched from server
+// Represent the data feteched from server, ideally we should get a spec from API developer
+// Here we simply constructed from sample data at https://bruce-v2-mob.fairfaxmedia.com.au/1/coding_test/13ZZQX/full
 // Only need to read it in this exercise, so Decodable instead of Codable
 struct RepresentedObject: Decodable {
     let id: Int
     let categories: [category] // type is a guess, since it is empty in the sample data
-    let authors: [author] // type is a guess, same as in other places
+    let authors: [author] // type is a guess, same as above and some in other places in this file
     let url: String
     let lastModified: Double
     let onTime: Double
@@ -44,10 +43,11 @@ struct asset: Decodable {
     let byLine: String
     let acceptComments: Bool
     let numberOfComments: Int
-   // let relatedAssets: [asset]
     let relatedImages:[image]
     
     let timeStamp: Double
+    
+    // There are a few more properties, for the ease of this test, omit them for now.
 }
 
 struct category: Decodable {

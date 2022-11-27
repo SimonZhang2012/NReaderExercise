@@ -12,8 +12,10 @@ protocol ViewProtocol : AnyObject {
 }
 
 class ViewController: UIViewController {
-    @IBOutlet weak var articlesTableView: UITableView!
+
+    @IBOutlet weak var articlesUICollectionView: UICollectionView!
     var presenter: Presenter?
+    let reusedIdentifier = "NReaderCollectionViewCell"
     
     private var displayObjects: [AssetDisplayObject] {
         presenter?.displayAssets ?? []
@@ -22,26 +24,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        articlesTableView.delegate = self
-        articlesTableView.dataSource = self
+        articlesUICollectionView.delegate = self
+        articlesUICollectionView.dataSource = self
+       // articlesUICollectionView.register(NReaderCollectionViewCell.self, forCellWithReuseIdentifier: reusedIdentifier)
     }
         
 }
 
-extension ViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         displayObjects.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        let cell = UITableViewCell()
-        cell.textLabel?.text = displayObjects[indexPath.row].headline
-        
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedIdentifier, for: indexPath as IndexPath) as! NReaderCollectionViewCell
+        cell.titleLabel.text = displayObjects[indexPath.row].headline
+
         return cell
     }
-    
     
 }
 
@@ -50,7 +50,7 @@ extension ViewController : ViewProtocol {
         if let objects = presenter?.displayAssets {
             print(objects)
             DispatchQueue.main.async {
-                self.articlesTableView.reloadData()
+                self.articlesUICollectionView.reloadData()
             }
         }
     }
